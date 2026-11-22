@@ -62,8 +62,14 @@ try {
         $source = ('{0}:{1}/{2}' -f $cid, $workdir, $rel)
         $dest = Join-Path $stage $rel
         New-Item -ItemType Directory -Force (Split-Path -Parent $dest) | Out-Null
-        & docker cp $source $dest 2>$null
-        if ($LASTEXITCODE -ne 0) {
+        $oldPreference = $ErrorActionPreference
+        $ErrorActionPreference = 'Continue'
+        try {
+            & docker cp $source $dest 2>$null
+            $copyExit = $LASTEXITCODE
+        }
+        finally { $ErrorActionPreference = $oldPreference }
+        if ($copyExit -ne 0) {
             Remove-Item -LiteralPath $dest -Force -Recurse -ErrorAction SilentlyContinue
         }
     }
