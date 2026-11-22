@@ -1,10 +1,19 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 APP="webrtc-new"
+# GitHub setup-flyctl installs flyctl, not necessarily the Windows-style fly alias.
+if command -v flyctl >/dev/null 2>&1; then
+  FLYCTL="$(command -v flyctl)"
+elif command -v fly >/dev/null 2>&1; then
+  FLYCTL="$(command -v fly)"
+else
+  echo "::error::Fly CLI not found after installation"; exit 127
+fi
+"$FLYCTL" version
 mkdir -p "$RUNNER_TEMP/fly-readonly"
 cd "$GITHUB_WORKSPACE"
 echo "Read deployed images from Fly.io for $APP"
-fly machine list -a "$APP" --json > "$RUNNER_TEMP/fly-readonly/machines.json"
+"$FLYCTL" machine list -a "$APP" --json > "$RUNNER_TEMP/fly-readonly/machines.json"
 python3 - <<'PY'
 import json,os,sys
 from pathlib import Path
@@ -13,34 +22,51 @@ if isinstance(data,dict):
     machines=data.get('machines') or data.get('items') or []
 else:
     machines=data
+import re
 refs=[]
 for m in machines:
-    if not isinstance(m,dict): continue
-    config=m.get('config') or {}
-    ref=config.get('image') or m.get('image') or m.get('image_ref')
-    if isinstance(ref,dict): ref=ref.get('ref') or ref.get('name')
-    if ref: refs.append(str(ref))
+    if not isinstance(m,dict): raise SystemExit("Unexpected machine response")
+    if m.get("state") in ("destroyed","destroying"): continue
+    config=m.get("config") or {}
+    image=m.get("image_ref") or config.get("image_ref") or {}
+    ref=None
+    if isinstance(image,dict):
+        digest=image.get("digest") or ""
+        registry=image.get("registry") or ""
+        repository=image.get("repository") or ""
+        if registry == "registry.fly.io" and repository == "webrtc-new" and re.fullmatch(r"sha256:[0-9a-fA-F]{64}",digest):
+            ref=f"{registry}/{repository}@{digest}"
+    if not ref:
+        value=config.get("image") or m.get("image") or ""
+        if isinstance(value,str):
+            match=re.fullmatch(r"registry\.fly\.io/webrtc-new(?::[^@]+)?@(sha256:[0-9a-fA-F]{64})",value)
+            if match: ref="registry.fly.io/webrtc-new@"+match.group(1)
+    if not ref:
+        raise SystemExit("No confirmed immutable image digest for a machine; refusing to guess or pull a mutable tag.")
+    refs.append(ref)
 refs=list(dict.fromkeys(refs))
-Path(os.environ['RUNNER_TEMP'],'fly-readonly','images.txt').write_text('\n'.join(refs))
-print('Machines: %d; distinct image references identified: %d'%(len(machines),len(refs)))
+Path(os.environ["RUNNER_TEMP"],"fly-readonly","images.txt").write_text("\n".join(refs))
+print("Machines: %d; distinct confirmed image digests: %d"%(len(machines),len(refs)))
 PY
 
-# If machine list excludes image refs, optionally accept a manually verified image.
+# Require the actual deployed digest and reject an ambiguous multi-image state.
 IMAGE_REF="$(head -n 1 "$RUNNER_TEMP/fly-readonly/images.txt")"
 REF_COUNT="$(grep -c '^.' "$RUNNER_TEMP/fly-readonly/images.txt" || true)"
 if [[ "$REF_COUNT" -ne 1 ]]; then
   echo "::error::Expected one unique actual machine image. Found $REF_COUNT. Refusing to guess the deployed image."
   exit 1
 fi
-if [[ "$IMAGE_REF" != registry.fly.io/"$APP":* && "$IMAGE_REF" != registry.fly.io/"$APP"@sha256:* ]]; then
+if [[ "$IMAGE_REF" != registry.fly.io/"$APP"@sha256:* ]]; then
   echo "::error::Image is not Fly registry image for the expected app. Refusing."
   exit 1
 fi
 export FLY_IMAGE_REF="$IMAGE_REF" FLY_APP="$APP"
 echo "Selected running image: $IMAGE_REF"
-fly auth docker
+"$FLYCTL" auth docker
 docker pull "$IMAGE_REF"
 docker image inspect "$IMAGE_REF" --format '{{.Id}}'
+docker image inspect "$IMAGE_REF" --format '{{range .RepoDigests}}{{println .}}{{end}}' | grep -Fx "$IMAGE_REF" >/dev/null
+echo "Verified pulled image matches Fly machine digest."
 WORKDIR="$(docker image inspect "$IMAGE_REF" --format '{{.Config.WorkingDir}}')"
 [[ -n "$WORKDIR" && "$WORKDIR" != "/" ]] || WORKDIR="/app"
 CID="$(docker create "$IMAGE_REF")"
