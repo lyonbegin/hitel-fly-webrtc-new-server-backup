@@ -1,6 +1,10 @@
 name: Backup actual Fly.io webrtc-new server to GitHub
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/backup-fly-webrtc-new.yml'
 
 permissions:
   contents: write
@@ -13,16 +17,18 @@ jobs:
   capture-server-only:
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    env:
-      FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
     steps:
       - name: Checkout backup repository
         uses: actions/checkout@v4
 
       - name: Install Fly CLI (does not deploy)
-        uses: superfly/flyctl-actions/setup-flyctl@master
+        uses: superfly/flyctl-actions/setup-flyctl@98172f70657cb3e15db199af139be99bd3e61200
+        with:
+          version: '0.5.14'
 
       - name: Verify required Fly.io secret
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
         shell: bash
         run: |
           if [[ -z "$FLY_API_TOKEN" ]]; then
@@ -31,5 +37,7 @@ jobs:
           fi
 
       - name: Fetch running image and publish filtered server sources
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
         shell: bash
         run: bash tools/backup-fly-to-github.sh
