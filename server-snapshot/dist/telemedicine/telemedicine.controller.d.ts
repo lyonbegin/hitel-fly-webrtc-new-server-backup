@@ -1,0 +1,90 @@
+import { TelemedicineService } from './telemedicine.service';
+import { AddConsultationParticipantDto, CreateConsultationDto } from './dto/telemedicine.dto';
+export declare class TelemedicineController {
+    private readonly telemedicine;
+    constructor(telemedicine: TelemedicineService);
+    create(dto: CreateConsultationDto, req: any): {
+        id: string;
+        type: string;
+        title: string | undefined;
+        status: import("../realtime/interfaces/session.types").SessionStatus;
+        hostUserIds: string[];
+        participants: import("../realtime/interfaces/session.types").SessionParticipant[];
+        policy: import("../realtime/interfaces/session.types").SessionPolicy;
+        scheduledAt: string | undefined;
+        createdAt: string;
+        startedAt: string | undefined;
+        endedAt: string | undefined;
+        mediaNodeId: string | undefined;
+        mediaNodePublicUrl: string | undefined;
+        metadata: Record<string, unknown>;
+    };
+    listMine(req: any): {
+        id: string;
+        type: string;
+        title: string | undefined;
+        status: import("../realtime/interfaces/session.types").SessionStatus;
+        hostUserIds: string[];
+        participants: import("../realtime/interfaces/session.types").SessionParticipant[];
+        policy: import("../realtime/interfaces/session.types").SessionPolicy;
+        scheduledAt: string | undefined;
+        createdAt: string;
+        startedAt: string | undefined;
+        endedAt: string | undefined;
+        mediaNodeId: string | undefined;
+        mediaNodePublicUrl: string | undefined;
+        metadata: Record<string, unknown>;
+    }[];
+    get(id: string, req: any): {
+        id: string;
+        type: string;
+        title: string | undefined;
+        status: import("../realtime/interfaces/session.types").SessionStatus;
+        hostUserIds: string[];
+        participants: import("../realtime/interfaces/session.types").SessionParticipant[];
+        policy: import("../realtime/interfaces/session.types").SessionPolicy;
+        scheduledAt: string | undefined;
+        createdAt: string;
+        startedAt: string | undefined;
+        endedAt: string | undefined;
+        mediaNodeId: string | undefined;
+        mediaNodePublicUrl: string | undefined;
+        metadata: Record<string, unknown>;
+    };
+    start(id: string, req: any): Promise<{
+        id: string;
+        type: string;
+        title: string | undefined;
+        status: import("../realtime/interfaces/session.types").SessionStatus;
+        hostUserIds: string[];
+        participants: import("../realtime/interfaces/session.types").SessionParticipant[];
+        policy: import("../realtime/interfaces/session.types").SessionPolicy;
+        scheduledAt: string | undefined;
+        createdAt: string;
+        startedAt: string | undefined;
+        endedAt: string | undefined;
+        mediaNodeId: string | undefined;
+        mediaNodePublicUrl: string | undefined;
+        metadata: Record<string, unknown>;
+    }>;
+    end(id: string, req: any): {
+        id: string;
+        type: string;
+        title: string | undefined;
+        status: import("../realtime/interfaces/session.types").SessionStatus;
+        hostUserIds: string[];
+        participants: import("../realtime/interfaces/session.types").SessionParticipant[];
+        policy: import("../realtime/interfaces/session.types").SessionPolicy;
+        scheduledAt: string | undefined;
+        createdAt: string;
+        startedAt: string | undefined;
+        endedAt: string | undefined;
+        mediaNodeId: string | undefined;
+        mediaNodePublicUrl: string | undefined;
+        metadata: Record<string, unknown>;
+    };
+    addParticipant(id: string, dto: AddConsultationParticipantDto, req: any): import("../realtime/interfaces/session.types").SessionParticipant;
+    removeParticipant(id: string, userId: string, req: any): {
+        success: boolean;
+    };
+}

@@ -1,0 +1,277 @@
+[
+  {
+    "path": "dist/app.module.d.ts",
+    "sha256": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
+    "bytes": 35
+  },
+  {
+    "path": "dist/app.module.js",
+    "sha256": "9b8d2f3b2b9903d7d1e6766f4c887c64d255519792bbbd339f6fcb1bbba836b4",
+    "bytes": 1709
+  },
+  {
+    "path": "dist/auth/auth.controller.d.ts",
+    "sha256": "90b9afb69241390b8570fdd8863898e653a46357a78a09aada692b643fd6c504",
+    "bytes": 513
+  },
+  {
+    "path": "dist/auth/auth.controller.js",
+    "sha256": "aaafcab9b5d02c9788ae090446d49776cf8aef1bbd85ab0b8877eaa0c6ab69a4",
+    "bytes": 3452
+  },
+  {
+    "path": "dist/auth/auth.module.d.ts",
+    "sha256": "a28b5c0c372fb375910b3fe3c3ce4331509bc18ccef7cc39c9ee9d8daf8225d1",
+    "bytes": 36
+  },
+  {
+    "path": "dist/auth/auth.module.js",
+    "sha256": "09f335cb30012cb5a0a9209282230dd6b69fa44809427e0b01c86a6d246444fb",
+    "bytes": 1774
+  },
+  {
+    "path": "dist/auth/auth.service.d.ts",
+    "sha256": "e9fdfd2d1896f31c83d0c0ae312fd60d6907c9d93a49a2609f0c95ea419926ee",
+    "bytes": 439
+  },
+  {
+    "path": "dist/auth/auth.service.js",
+    "sha256": "1d06808c083221ffe51863e4ab217f6d4425f8bbce2425fe1bebffc371cb390b",
+    "bytes": 1999
+  },
+  {
+    "path": "dist/auth/http-jwt.guard.d.ts",
+    "sha256": "50844b20c47bf7fa28603d46976406080928255a653fc4b3a843c97ab528fa2a",
+    "bytes": 296
+  },
+  {
+    "path": "dist/auth/http-jwt.guard.js",
+    "sha256": "ee892a995a08647233634f9bd79e4c079e5aa81b265ff1e7433460316ed1822f",
+    "bytes": 1560
+  },
+  {
+    "path": "dist/common/types.d.ts",
+    "sha256": "954b9f6cd71e6573372d90b63be537c5bed58e6c23e43b012b0e0186b409ccf5",
+    "bytes": 631
+  },
+  {
+    "path": "dist/common/types.js",
+    "sha256": "4515c53d3315a1f19490baf9feaf11e10df0bdf6e2043a3145fedb6c202472b2",
+    "bytes": 367
+  },
+  {
+    "path": "dist/config/env.validation.d.ts",
+    "sha256": "a116a87faefd403243ccecca5e6eba66c2447f9f1cda0d87e9a0b229de106ec7",
+    "bytes": 92
+  },
+  {
+    "path": "dist/config/env.validation.js",
+    "sha256": "f0bf4a1931318402a7472f5c10f813f1d90b7e9d34160ffc52c3ff44b7b2c00d",
+    "bytes": 1447
+  },
+  {
+    "path": "dist/health/health.controller.d.ts",
+    "sha256": "592b711b6bf8023b55ed7efedf9d22d571652590accad4b14def1a037040ab37",
+    "bytes": 749
+  },
+  {
+    "path": "dist/health/health.controller.js",
+    "sha256": "ed1b82ff619b0869a8a2d4c541d39ae16d041e3baae07ccf201333c619b3202f",
+    "bytes": 2055
+  },
+  {
+    "path": "dist/health/health.module.d.ts",
+    "sha256": "b07d5051f8f98f199765e80d433dc9294dd867433bedbf1ee068f1a5c6add20d",
+    "bytes": 38
+  },
+  {
+    "path": "dist/health/health.module.js",
+    "sha256": "7f54b8b2c7001035e16b4618ad8b039ae7a3ec1d4346cc4ebf0d79c1e59f9c38",
+    "bytes": 1272
+  },
+  {
+    "path": "dist/main.d.ts",
+    "sha256": "396a3607ca8288c7dd02dff9b04e6ffb057b3c6f3d12965421373c3da78b65cc",
+    "bytes": 27
+  },
+  {
+    "path": "dist/main.js",
+    "sha256": "40199e1065a49e91524d919cd2fb3308bdff73136afc6c6722034fb5c84117ed",
+    "bytes": 1145
+  },
+  {
+    "path": "dist/mediasoup/media.config.d.ts",
+    "sha256": "474d41461fe22a1b76c2219ac01c2b9efdab7006e56538a8f2ee4f122e7bd4f4",
+    "bytes": 127
+  },
+  {
+    "path": "dist/mediasoup/media.config.js",
+    "sha256": "1060442c5bb84d0c4cc782feeb434901ea19a14f55de891e70c081c74bf2b1f9",
+    "bytes": 709
+  },
+  {
+    "path": "dist/mediasoup/mediasoup.module.d.ts",
+    "sha256": "b15f32c92d939dc0fff31188958110de9239f7fc9c99646d44706fc9ad8c8dbe",
+    "bytes": 41
+  },
+  {
+    "path": "dist/mediasoup/mediasoup.module.js",
+    "sha256": "18a55de7ef5908a470b57de7279d0dba29a141400bfa8786f486c35192ea06d0",
+    "bytes": 1597
+  },
+  {
+    "path": "dist/mediasoup/mediasoup.service.d.ts",
+    "sha256": "b7ec43f6dc003f1b278f94a7cc1b06dcd849871e3511648d3a625f2e76017b04",
+    "bytes": 1024
+  },
+  {
+    "path": "dist/mediasoup/mediasoup.service.js",
+    "sha256": "5062f24f42e6d26c46b2c6b8ea378f4a09db7149191cbd12f97bec75bf53b54d",
+    "bytes": 7138
+  },
+  {
+    "path": "dist/mediasoup/producer-consumer.service.d.ts",
+    "sha256": "330e5d0782e939ca18d73ef8749540fae68516573f4be29d3f22f00a6816cb4d",
+    "bytes": 2208
+  },
+  {
+    "path": "dist/mediasoup/producer-consumer.service.js",
+    "sha256": "c81b6f6b70bd610d69abc61f74d262c75a2d6ca39c537ca36923926140234fa8",
+    "bytes": 8685
+  },
+  {
+    "path": "dist/mediasoup/rtc-room.service.d.ts",
+    "sha256": "896f6922c4aa8074d493339ff70b3905ecc27a8ec405b72162dd5090aacc9e39",
+    "bytes": 893
+  },
+  {
+    "path": "dist/mediasoup/rtc-room.service.js",
+    "sha256": "494bfa5edcae00e0f511a24b4f542b79307c2e5fe0017d36fc3220631cf8434c",
+    "bytes": 4826
+  },
+  {
+    "path": "dist/mediasoup/rtc-room.types.d.ts",
+    "sha256": "36cd8da5e2a9dd7fd68074b3e8595e054275a6e5bdd4d48ffc3261757f6ba7ba",
+    "bytes": 1115
+  },
+  {
+    "path": "dist/mediasoup/rtc-room.types.js",
+    "sha256": "9cf92af5b7d8c3dda8660934d329ca3fddcc3a388e92d67077720c05d3264bd8",
+    "bytes": 119
+  },
+  {
+    "path": "dist/mediasoup/transport.service.d.ts",
+    "sha256": "1fc414080789a6aee2bf8b9a157aba9f0e49a4ad60b76a9222e9107161946bdc",
+    "bytes": 1216
+  },
+  {
+    "path": "dist/mediasoup/transport.service.js",
+    "sha256": "72686c64de1c4572e0069a84be491dd8b5597f2a71c8eac3889e838517c3a3f9",
+    "bytes": 4393
+  },
+  {
+    "path": "dist/realtime/dto/realtime.dto.d.ts",
+    "sha256": "34dfe945d1612a438471f4fc967628df5edc3488062fc9cead1d79259c125575",
+    "bytes": 1196
+  },
+  {
+    "path": "dist/realtime/dto/realtime.dto.js",
+    "sha256": "201441d917542cc12437d174385f02ba00a7c8819fcf30a60dd39a94056205bf",
+    "bytes": 6614
+  },
+  {
+    "path": "dist/realtime/interfaces/session.types.d.ts",
+    "sha256": "d29f3870bb606aaaad86bb649b0db997a9584f1efde475767c13a1eee872aae5",
+    "bytes": 1778
+  },
+  {
+    "path": "dist/realtime/interfaces/session.types.js",
+    "sha256": "4491e445d22c7d84b6c30d5cc79873bf2aea6f0a18ceec1dbd804777b5190245",
+    "bytes": 118
+  },
+  {
+    "path": "dist/realtime/realtime.gateway.d.ts",
+    "sha256": "a1b6a0eda88f0450984b8f5b0dcd8ac86a2af4eaa1e61f42b5074fe84a76dc19",
+    "bytes": 3419
+  },
+  {
+    "path": "dist/realtime/realtime.gateway.js",
+    "sha256": "99a6b3401b8dc758a731af1376c5c84a12516e5ebbbcd905bc785d6eb0f5eb22",
+    "bytes": 27435
+  },
+  {
+    "path": "dist/realtime/realtime.module.d.ts",
+    "sha256": "413c9ef0c4cb9d2358242237cff760cfc59c4f19ee84233688f97786649c14ff",
+    "bytes": 40
+  },
+  {
+    "path": "dist/realtime/realtime.module.js",
+    "sha256": "9a3edb017ea4af4b16fea8e002d0d0251f32ecf7a03661e99b020969752d3a00",
+    "bytes": 1428
+  },
+  {
+    "path": "dist/realtime/session.service.d.ts",
+    "sha256": "0fdd989875fb529430b1d21433ee0ca35b23770af1ce439d9eefc0acc843f974",
+    "bytes": 2387
+  },
+  {
+    "path": "dist/realtime/session.service.js",
+    "sha256": "1a9ed0ce045580c2dc898ae0ddf0a89859f57145d28dbf573be8130b0ee7ae05",
+    "bytes": 11162
+  },
+  {
+    "path": "dist/telemedicine/dto/telemedicine.dto.d.ts",
+    "sha256": "fc1df75c8c1cf8759366ec41ebfb2c9dfc00c025937aea66a988cdbe88849738",
+    "bytes": 502
+  },
+  {
+    "path": "dist/telemedicine/dto/telemedicine.dto.js",
+    "sha256": "9c2dfd71b7e251356a3f000e2ccf3c7a6a7ddeebda9f54d54043308cdb758515",
+    "bytes": 3530
+  },
+  {
+    "path": "dist/telemedicine/telemedicine.controller.d.ts",
+    "sha256": "e8fb4aaa68f0eb264b5459f409408bc878b7998fe491df87003d170dfdc887b8",
+    "bytes": 3913
+  },
+  {
+    "path": "dist/telemedicine/telemedicine.controller.js",
+    "sha256": "bbcd851013105f27869e02e621b6723ad570c430840783ffd23cd8cfee6c86a0",
+    "bytes": 4876
+  },
+  {
+    "path": "dist/telemedicine/telemedicine.module.d.ts",
+    "sha256": "daf20de43cb90f8017892421b3954d2144b2e523841739d5e667b7ead1ff3fd3",
+    "bytes": 44
+  },
+  {
+    "path": "dist/telemedicine/telemedicine.module.js",
+    "sha256": "d07cc3a855fadbedc59334eeea4c990f319681046d8643945e47153ea1bcc757",
+    "bytes": 1477
+  },
+  {
+    "path": "dist/telemedicine/telemedicine.service.d.ts",
+    "sha256": "60a214f098cd69336ef4481a28793ee891183b903794fc2229ce40ab77414587",
+    "bytes": 4051
+  },
+  {
+    "path": "dist/telemedicine/telemedicine.service.js",
+    "sha256": "d021f93efc72378d0c2bc66e9d6a4bd638e7b52f34e4bc91fa3c051e20aba80f",
+    "bytes": 4556
+  },
+  {
+    "path": "dist/telemedicine/telemedicine.types.d.ts",
+    "sha256": "ff3c25e673a128abdf36adbd5582a7fc1f892df6c34f666b0515bdfa55aee481",
+    "bytes": 381
+  },
+  {
+    "path": "dist/telemedicine/telemedicine.types.js",
+    "sha256": "5a6f5b386672dbb2ae5796c9b819c4b9fad7b584888067a9d2824ef0df290697",
+    "bytes": 1785
+  },
+  {
+    "path": "package.json",
+    "sha256": "71384f9d710cd8d574a112845af1c625d99061f7f7fc4ab1031c6aacf618e646",
+    "bytes": 1072
+  }
+]

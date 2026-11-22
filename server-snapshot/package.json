@@ -1,0 +1,37 @@
+{
+  "name": "realtime-session-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Generic realtime session + mediasoup SFU server with telemedicine wrapper",
+  "license": "UNLICENSED",
+  "engines": { "node": ">=22.0.0" },
+  "scripts": {
+    "build": "nest build",
+    "start": "node dist/main.js",
+    "start:dev": "nest start --watch",
+    "start:prod": "node dist/main.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.6",
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/core": "^11.1.6",
+    "@nestjs/jwt": "^11.0.0",
+    "@nestjs/platform-express": "^11.1.6",
+    "@nestjs/platform-socket.io": "^11.0.3",
+    "@nestjs/websockets": "^11.0.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "mediasoup": "^3.26.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.10",
+    "@nestjs/schematics": "^11.0.7",
+    "@nestjs/testing": "^11.1.6",
+    "@types/node": "^24.3.0",
+    "typescript": "^5.9.2"
+  }
+}

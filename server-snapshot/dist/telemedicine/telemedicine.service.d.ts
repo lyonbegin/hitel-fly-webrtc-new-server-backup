@@ -1,0 +1,91 @@
+import { SessionService } from '../realtime/session.service';
+import { AuthClaims } from '../common/types';
+import { CreateConsultationDto, AddConsultationParticipantDto } from './dto/telemedicine.dto';
+export declare class TelemedicineService {
+    private readonly sessions;
+    constructor(sessions: SessionService);
+    create(dto: CreateConsultationDto, actor: AuthClaims): {
+        id: string;
+        type: string;
+        title: string | undefined;
+        status: import("../realtime/interfaces/session.types").SessionStatus;
+        hostUserIds: string[];
+        participants: import("../realtime/interfaces/session.types").SessionParticipant[];
+        policy: import("../realtime/interfaces/session.types").SessionPolicy;
+        scheduledAt: string | undefined;
+        createdAt: string;
+        startedAt: string | undefined;
+        endedAt: string | undefined;
+        mediaNodeId: string | undefined;
+        mediaNodePublicUrl: string | undefined;
+        metadata: Record<string, unknown>;
+    };
+    get(sessionId: string, actorUserId: string): {
+        id: string;
+        type: string;
+        title: string | undefined;
+        status: import("../realtime/interfaces/session.types").SessionStatus;
+        hostUserIds: string[];
+        participants: import("../realtime/interfaces/session.types").SessionParticipant[];
+        policy: import("../realtime/interfaces/session.types").SessionPolicy;
+        scheduledAt: string | undefined;
+        createdAt: string;
+        startedAt: string | undefined;
+        endedAt: string | undefined;
+        mediaNodeId: string | undefined;
+        mediaNodePublicUrl: string | undefined;
+        metadata: Record<string, unknown>;
+    };
+    listForUser(userId: string): {
+        id: string;
+        type: string;
+        title: string | undefined;
+        status: import("../realtime/interfaces/session.types").SessionStatus;
+        hostUserIds: string[];
+        participants: import("../realtime/interfaces/session.types").SessionParticipant[];
+        policy: import("../realtime/interfaces/session.types").SessionPolicy;
+        scheduledAt: string | undefined;
+        createdAt: string;
+        startedAt: string | undefined;
+        endedAt: string | undefined;
+        mediaNodeId: string | undefined;
+        mediaNodePublicUrl: string | undefined;
+        metadata: Record<string, unknown>;
+    }[];
+    start(sessionId: string, actorUserId: string): Promise<{
+        id: string;
+        type: string;
+        title: string | undefined;
+        status: import("../realtime/interfaces/session.types").SessionStatus;
+        hostUserIds: string[];
+        participants: import("../realtime/interfaces/session.types").SessionParticipant[];
+        policy: import("../realtime/interfaces/session.types").SessionPolicy;
+        scheduledAt: string | undefined;
+        createdAt: string;
+        startedAt: string | undefined;
+        endedAt: string | undefined;
+        mediaNodeId: string | undefined;
+        mediaNodePublicUrl: string | undefined;
+        metadata: Record<string, unknown>;
+    }>;
+    end(sessionId: string, actorUserId: string): {
+        id: string;
+        type: string;
+        title: string | undefined;
+        status: import("../realtime/interfaces/session.types").SessionStatus;
+        hostUserIds: string[];
+        participants: import("../realtime/interfaces/session.types").SessionParticipant[];
+        policy: import("../realtime/interfaces/session.types").SessionPolicy;
+        scheduledAt: string | undefined;
+        createdAt: string;
+        startedAt: string | undefined;
+        endedAt: string | undefined;
+        mediaNodeId: string | undefined;
+        mediaNodePublicUrl: string | undefined;
+        metadata: Record<string, unknown>;
+    };
+    addParticipant(sessionId: string, dto: AddConsultationParticipantDto, actorUserId: string): import("../realtime/interfaces/session.types").SessionParticipant;
+    removeParticipant(sessionId: string, userId: string, actorUserId: string): {
+        success: boolean;
+    };
+}
