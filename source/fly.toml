@@ -1,0 +1,86 @@
+app = "webrtc-new"
+primary_region = "nrt"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "8080"
+  NODE_ENV = "production"
+  MEDIA_NODE_ID = "media-nrt-1"
+  MEDIASOUP_WORKERS = "2"
+  MEDIASOUP_MAX_WORKERS = "4"
+  MEDIASOUP_LISTEN_IP = "0.0.0.0"
+  MEDIASOUP_WEBRTC_PORT_BASE = "40000"
+  MEDIASOUP_INITIAL_BITRATE = "1500000"
+  MEDIASOUP_MAX_INCOMING_BITRATE = "3000000"
+  RTC_PEER_GRACE_MS = "20000"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "off"
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
+
+  [[http_service.checks]]
+    grace_period = "10s"
+    interval = "15s"
+    method = "GET"
+    timeout = "3s"
+    path = "/health"
+
+# One shared UDP/TCP port per mediasoup Worker.
+# MEDIASOUP_WORKERS must not exceed the number of exposed media ports below.
+[[services]]
+  protocol = "udp"
+  internal_port = 40000
+  [[services.ports]]
+    port = 40000
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 40000
+  [[services.ports]]
+    port = 40000
+
+[[services]]
+  protocol = "udp"
+  internal_port = 40001
+  [[services.ports]]
+    port = 40001
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 40001
+  [[services.ports]]
+    port = 40001
+
+[[services]]
+  protocol = "udp"
+  internal_port = 40002
+  [[services.ports]]
+    port = 40002
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 40002
+  [[services.ports]]
+    port = 40002
+
+[[services]]
+  protocol = "udp"
+  internal_port = 40003
+  [[services.ports]]
+    port = 40003
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 40003
+  [[services.ports]]
+    port = 40003
+
+[[vm]]
+  size = "shared-cpu-2x"
+  memory = "2gb"
